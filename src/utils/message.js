@@ -9,7 +9,7 @@ const generateMessage = (username,text)=>{
 const generateLocationMessage = (username,coords)=>{
     return{
         username,
-        text: 'https://google.com/maps?q='+coords.latitiude+','+coords.longitude ,
+        text: 'https://google.com/maps?q='+coords.latitiude+','+coords.longitude,
         createdAt: new Date().getTime()
     }
 }

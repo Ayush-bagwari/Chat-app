@@ -51,10 +51,8 @@ socket.on('roomData',({room, users})=>{
 
 socket.on('myLocation',(value)=>{
     var messages = document.getElementById('messages');
-  
-    // console.log(value);
     const html = Mustache.render(locationTemplate,{
-        link: value,
+        link: value.text,
         createdAt: moment(value.createdAt).format('h:mm a'),
         name: value.username
     });
