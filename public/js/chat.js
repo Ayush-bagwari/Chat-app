@@ -39,8 +39,6 @@ socket.on('chat',(value)=>{
 });
 
 socket.on('roomData',({room, users})=>{
-    console.log(room);
-    console.log(users);
     const html = Mustache.render(siderbarTemplate,{
         room: room,
         users: users

@@ -4,7 +4,7 @@ const http = require('http');
 const socketio = require('socket.io');
 const Filter = require('bad-words');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
@@ -23,6 +23,7 @@ io.on('connection',(socket) => {
     console.log('New socket connection');
 
     socket.on('join',({username,roomName},callback)=>{
+        console.log("checko");
         const {error, user} = addUser({id:socket.id,username,roomName});
         if(error){
             return callback(error);
@@ -56,6 +57,7 @@ io.on('connection',(socket) => {
     });
     socket.on('userLocation',(coords,callback)=>{
         const theUser = getUser(socket.id);
+        console.log(theUser);
         io.to(theUser.room).emit('myLocation',generateLocationMessage(theUser.name,coords));
         callback("Location delivered");
     });

@@ -6,11 +6,10 @@ const addUser = ({id, username, roomName}) => {
     const room = roomName.trim().toLowerCase();
     //validate the data
     if(!name || !room){
-
-     console.log("not working");
-     return {
+        console.log("not working");
+        return {
         error: "username and room are required!"
-     }   
+        }   
     }
 
 
